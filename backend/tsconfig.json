@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "esnext"
+    ],
+    "rootDir": "src",
+    "outDir": "../tmp/backend",
+    "types": [
+      "google-apps-script"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
