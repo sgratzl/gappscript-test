@@ -1,5 +1,3 @@
-/.tscache
-/.idea
 /build/
 /dist/
 node_modules/
@@ -8,6 +6,5 @@ node_modules/
 /demo/**/*.js
 /tests/**/*.js
 *.map
-*.css
-*.log
-/.cache-loader
+tmp/**
+.rpt2_cache

@@ -1,5 +1,10 @@
 **/node_modules/**
 .git
-src/**
-tsd.d.ts
+frontend/**
+backend/**
 **/*.map
+rollup.config.js
+tsconfig.json
+tslint.json
+README.md
+tmp/**

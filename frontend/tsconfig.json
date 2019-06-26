@@ -3,6 +3,9 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "../tmp/frontend",
+    "types": [
+      
+    ]
   },
   "include": [
     "src/**/*.ts",

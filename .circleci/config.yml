@@ -16,8 +16,8 @@ jobs:
           paths:
           - ./node_modules
       - run:
-          name: dist
-          command: npm run dist
+          name: pack
+          command: npm pack
       - store_artifacts:
           path: build
 

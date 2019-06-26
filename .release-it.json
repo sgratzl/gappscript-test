@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "before:init": "npm test",
+    "before:release": "npm pack",
+    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+  },
+  "git": {
+    "tagName": "v%s"
+  },
+  "github": {
+    "release": true
+  }
+}
