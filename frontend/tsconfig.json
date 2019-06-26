@@ -3,8 +3,9 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "../tmp/frontend",
-    "types": [
-      
+    "lib": [
+      "dom",
+      "es2015"
     ]
   },
   "include": [

@@ -1,10 +1,3 @@
-**/node_modules/**
-.git
-frontend/**
-backend/**
-**/*.map
-rollup.config.js
-tsconfig.json
-tslint.json
-README.md
-tmp/**
+**/**
+!build/**
+!appsscript.json

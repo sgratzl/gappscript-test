@@ -1,0 +1,7 @@
+{
+  "name": "helpr",
+  "private": true,
+  "dependencies": {
+    "@types/google-apps-script": "0.0.54"
+  }
+}

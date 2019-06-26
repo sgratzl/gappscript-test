@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sgratzl/gappscript-test#readme",
   "scripts": {
+    "postinstall": "cd backend & npm i",
     "clean": "rimraf tmp build",
     "compile:frontend": "cd frontend & tsc -p tsconfig.json",
     "compile:backend": "cd backend & tsc -p tsconfig.json",
@@ -48,8 +49,5 @@
     "tslint-consistent-codestyle": "^1.15.1",
     "tslint-eslint-rules": "^5.4.0",
     "typescript": "^3.5.2"
-  },
-  "dependencies": {
-    "@types/google-apps-script": "0.0.54"
   }
 }

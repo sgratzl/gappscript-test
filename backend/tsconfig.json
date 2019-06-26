@@ -6,10 +6,7 @@
       "esnext"
     ],
     "rootDir": "src",
-    "outDir": "../tmp/backend",
-    "types": [
-      "google-apps-script"
-    ]
+    "outDir": "../tmp/backend"
   },
   "include": [
     "src/**/*.ts"
