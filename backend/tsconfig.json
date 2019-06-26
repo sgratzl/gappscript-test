@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": [
-      "esnext"
+      "es5"
     ],
     "rootDir": "src",
     "outDir": "../tmp/backend"

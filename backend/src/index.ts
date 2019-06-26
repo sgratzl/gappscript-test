@@ -1,3 +1,4 @@
+import 'core-js/features/promise';
 
 export function onOpen() {//e: GoogleAppsScript.Events.SheetsOnOpen) {
   const menu = SpreadsheetApp.getUi().createAddonMenu();

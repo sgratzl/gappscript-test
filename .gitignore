@@ -6,5 +6,5 @@ node_modules/
 /demo/**/*.js
 /tests/**/*.js
 *.map
-tmp/**
+/tmp/
 .rpt2_cache

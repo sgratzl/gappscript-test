@@ -2,6 +2,7 @@
 import typescript from 'rollup-plugin-typescript2';
 import resolve from 'rollup-plugin-node-resolve';
 import builtins from 'rollup-plugin-node-builtins';
+import commonjs from 'rollup-plugin-commonjs';
 
 // based on https://github.com/bengsfort/rollup-plugin-generate-html-template/
 
@@ -46,14 +47,10 @@ function gaswrapper(options = {}) {
         return null;
       }
       return `
-var _impl = (function() {
-  var exports = {};
-  ${code.replace(/\n/gm, '\n  ').trim()}
-  return exports;
-})();
+${code}
 // generate wrapper for all exports
 ${chunk.exports.map((f) => `function ${f}() {
-  return _impl.${f}.apply(this, arguments);
+  return ${chunkOptions.name}.${f}.apply(this, arguments);
 }`).join('\n\n')}`;
     }
   };
@@ -71,7 +68,10 @@ export default [{
     resolve({
       preferBuiltins: true
     }),
-    typescript(),
+    commonjs(),
+    typescript({
+      tsconfig: './frontend/tsconfig.json'
+    }),
     wrapHTML({
       template: './frontend/src/dialog.html'
     })
@@ -80,14 +80,18 @@ export default [{
   input: './backend/src/index.ts',
   output: {
     file: 'build/index.js',
-    format: 'cjs'
+    name: 'test',
+    format: 'iife'
   },
   plugins: [
     builtins(),
     resolve({
       preferBuiltins: false
     }),
-    typescript(),
+    commonjs(),
+    typescript({
+      tsconfig: './backend/tsconfig.json'
+    }),
     gaswrapper()
   ]
 }]
