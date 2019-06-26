@@ -1,4 +1,4 @@
-import 'core-js/features/promise';
+import 'core-js/features/string/starts-with';
 
 export function onOpen() {//e: GoogleAppsScript.Events.SheetsOnOpen) {
   const menu = SpreadsheetApp.getUi().createAddonMenu();
@@ -17,7 +17,8 @@ export function showDialog_() {
 }
 
 export function getServerHello() {
-  return SpreadsheetApp.getActive().getName();
+  const s = SpreadsheetApp.getActive().getName();
+  return `${s} - ${s.startsWith('test')}`;
 }
 
 export function greetingsBack(msg: string) {
