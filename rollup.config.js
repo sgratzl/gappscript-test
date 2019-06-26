@@ -5,7 +5,8 @@ import builtins from 'rollup-plugin-node-builtins';
 
 // based on https://github.com/bengsfort/rollup-plugin-generate-html-template/
 
-import {readFile} from 'fs-extra';
+import {readFile} from 'fs';
+import {promisify} from 'util';
 
 function wrapHTML(options = {}) {
   const DEFAULT_TEMPLATE = `<!DOCTYPE html>
@@ -16,13 +17,15 @@ function wrapHTML(options = {}) {
   </body>
   </html>`;
   const template = options.template;
+
+  const readFileAsync = promisify(readFile);
   return {
     name: 'inline-html',
     renderChunk: (code, chunk, chunkOptions) => {
       if (!chunk.isEntry) {
         return null;
       }
-      return Promise.resolve(template ? readFile(template).then((b) => b.toString('utf8')) : DEFAULT_TEMPLATE).then((tmpl) => {
+      return Promise.resolve(template ? readFileAsync(template).then((b) => b.toString('utf8')) : DEFAULT_TEMPLATE).then((tmpl) => {
         const bodyCloseTag = tmpl.lastIndexOf('</body>');
         // Inject the script tags before the body close tag
         return [
@@ -58,9 +61,9 @@ ${chunk.exports.map((f) => `function ${f}() {
 
 
 export default [{
-  input: './frontend/src/index.ts',
+  input: './frontend/src/dialog.ts',
   output: {
-    file: 'build/index.html',
+    file: 'build/dialog.html',
     format: 'iife'
   },
   plugins: [
@@ -70,7 +73,7 @@ export default [{
     }),
     typescript(),
     wrapHTML({
-      template: './frontend/src/index.html'
+      template: './frontend/src/dialog.html'
     })
   ]
 }, {

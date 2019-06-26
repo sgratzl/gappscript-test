@@ -10,7 +10,7 @@ export function onInstall() {//e: GoogleAppsScript.Events.AddonOnInstall) {
 }
 
 export function showDialog_() {
-  const output = HtmlService.createTemplateFromFile('build/index.html').evaluate();
+  const output = HtmlService.createTemplateFromFile('build/dialog.html').evaluate();
   output.setTitle('Hello World');
   SpreadsheetApp.getUi().showModalDialog(output, 'Hello World');
 }
